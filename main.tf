@@ -25,7 +25,7 @@ resource "aws_spot_instance_request" "master" {
   subnet_id = data.aws_subnet.default_subnet.id
   iam_instance_profile = aws_iam_instance_profile.kube_master.name
   user_data = file("${var.Application_Name}.sh")
-  instance_interruption_behaviour = "stop"
+  instance_interruption_behavior = "stop"
   spot_price = var.master_price
   wait_for_fulfillment = true
   root_block_device {
@@ -72,7 +72,7 @@ resource "aws_spot_instance_request" "nodes-1" {
   subnet_id = data.aws_subnet.default_subnet.id
   iam_instance_profile = aws_iam_instance_profile.kube_nodes.name
   user_data = file("${var.Application_Name}_node.sh")
-  instance_interruption_behaviour = "stop"
+  instance_interruption_behavior = "stop"
   spot_price = var.node_price
   wait_for_fulfillment = true
   root_block_device {
@@ -119,7 +119,7 @@ resource "aws_spot_instance_request" "nodes-2" {
   subnet_id = data.aws_subnet.default_subnet.id
   iam_instance_profile = aws_iam_instance_profile.kube_nodes.name
   user_data = file("${var.Application_Name}_node.sh")
-  instance_interruption_behaviour = "stop"
+  instance_interruption_behavior = "stop"
   spot_price = var.node_price
   wait_for_fulfillment = true
   root_block_device {
